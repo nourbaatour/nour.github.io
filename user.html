@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>User Info</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+		}
+		h1 {
+			font-size: 24px;
+			color: #333;
+		}
+		.container {
+			max-width: 800px;
+			margin: 0 auto;
+			padding: 20px;
+			background-color: #fff;
+			box-shadow: 0 0 10px rgba(0,0,0,0.2);
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>User Info</h1>
+		<p><strong>Nom:</strong> <span id="nom"></span></p>
+		<p><strong>Email:</strong> <span id="email"></span></p>
+		<p><strong>Adresse:</strong> <span id="adresse"></span></p>
+		<img id="image" src="" alt="Image de profil">
+	</div>
+
+	<script>
+		// Récupérer les données du user à partir de l'objet Java loggedInUser
+		var nom = '<%= loggedInUser.getNom() %>';
+		var email = '<%= loggedInUser.getEmail() %>';
+		var adresse = '<%= loggedInUser.getPrenom() %>';
+		var image = '<%= loggedInUser.getImage() %>';
+
+		// Mettre à jour les éléments HTML avec les données du user
+		document.getElementById('nom').textContent = nom;
+		document.getElementById('email').textContent = email;
+		document.getElementById('adresse').textContent = adresse;
+		document.getElementById('image').src = 'C:/imagepi/' + image;
+	</script>
+</body>
+</html>
